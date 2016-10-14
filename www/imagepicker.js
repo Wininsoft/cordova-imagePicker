@@ -32,7 +32,9 @@ ImagePicker.prototype.getPictures = function (success, fail, options) {
         height: options.height ? options.height : 0,
         quality: options.quality ? options.quality : 100,
         progressCaption: options.progressCaption,
-        progressMessage: options.progressMessage
+        progressMessage: options.progressMessage,
+        maximumImageErrorTitle: options.maximumImageErrorTitle,
+        maximumImageErrorMessage: options.maximumImageErrorMessage
     };
 
     return cordova.exec(success, fail, "ImagePicker", "getPictures", [params]);
