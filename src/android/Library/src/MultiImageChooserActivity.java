@@ -203,8 +203,8 @@ public class MultiImageChooserActivity extends Activity implements OnItemClickLi
         //progress.setTitle("Processing Images");
         //progress.setMessage("This may take a few moments");
 
-		progress.setTitle(getIntent().getStringExtra("ProgressCaption"));
-		progress.setMessage(getIntent().getStringExtra("ProgressMessage"));
+		progress.setTitle(getIntent().getStringExtra("Localization_ProgressCaption"));
+		progress.setMessage(getIntent().getStringExtra("Localization_ProgressMessage"));
     }
 
     @Override
@@ -219,9 +219,9 @@ public class MultiImageChooserActivity extends Activity implements OnItemClickLi
         if (maxImages == 0 && isChecked) {
             isChecked = false;
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(getIntent().getStringExtra("MaximumImageErrorMessage"));
-            builder.setMessage(getIntent().getStringExtra("MaximumImageErrorTitlte"));
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setTitle(getIntent().getStringExtra("Localization_MaximumImageErrorMessage"));
+            builder.setMessage(getIntent().getStringExtra("Localization_MaximumImageErrorTitlte"));
+            builder.setPositiveButton(getIntent().getStringExtra("Localization_OK"), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
                 }

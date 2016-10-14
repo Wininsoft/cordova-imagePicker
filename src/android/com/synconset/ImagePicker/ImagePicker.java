@@ -35,6 +35,7 @@ public class ImagePicker extends CordovaPlugin {
 			String progressMessage=null;
 			String maximumImageErrorTitle=null;
 			String maximumImageErrorMessage=null;
+			String ok=null;
 			if (this.params.has("maximumImagesCount")) {
 				max = this.params.getInt("maximumImagesCount");
 			}
@@ -47,26 +48,30 @@ public class ImagePicker extends CordovaPlugin {
 			if (this.params.has("quality")) {
 				quality = this.params.getInt("quality");
 			}
-			if (this.params.has("progressCaption")) {
-				progressCaption = this.params.getString("progressCaption");
+			if (this.params.has("localization_ProgressCaption")) {
+				progressCaption = this.params.getString("localization_ProgressCaption");
 			}
-			if (this.params.has("progressMessage")) {
-				progressMessage = this.params.getString("progressMessage");
+			if (this.params.has("localization_ProgressMessage")) {
+				progressMessage = this.params.getString("localization_ProgressMessage");
 			}
-			if (this.params.has("maximumImageErrorTitle")) {
-				maximumImageErrorTitle = this.params.getString("maximumImageErrorTitle");
+			if (this.params.has("localization_MaximumImageErrorTitle")) {
+				maximumImageErrorTitle = this.params.getString("localization_MaximumImageErrorTitle");
 			}
-			if (this.params.has("maximumImageErrorMessage")) {
-				maximumImageErrorMessage = this.params.getString("maximumImageErrorMessage");
+			if (this.params.has("localization_MaximumImageErrorMessage")) {
+				maximumImageErrorMessage = this.params.getString("localization_MaximumImageErrorMessage");
+			}
+			if (this.params.has("localization_OK")) {
+				ok = this.params.getString("localization_OK");
 			}
 			intent.putExtra("MAX_IMAGES", max);
 			intent.putExtra("WIDTH", desiredWidth);
 			intent.putExtra("HEIGHT", desiredHeight);
 			intent.putExtra("QUALITY", quality);
-			intent.putExtra("ProgressCaption", progressCaption);
-			intent.putExtra("ProgressMessage", progressMessage);
-			intent.putExtra("MaximumImageErrorTitle", maximumImageErrorTitle);
-			intent.putExtra("MaximumImageErrorMessage", maximumImageErrorMessage);
+			intent.putExtra("Localization_ProgressCaption", progressCaption);
+			intent.putExtra("Localization_ProgressMessage", progressMessage);
+			intent.putExtra("Localization_MaximumImageErrorTitle", maximumImageErrorTitle);
+			intent.putExtra("Localization_MaximumImageErrorMessage", maximumImageErrorMessage);
+			intent.putExtra("Localization_OK", ok);
 			if (this.cordova != null) {
 				this.cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
 			}
