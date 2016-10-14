@@ -5,7 +5,7 @@
  * Developed by Wymsee for Sync OnSet
  */
 
-var ImagePicker = function() {
+var ImagePicker = function () {
 
 };
 
@@ -21,19 +21,21 @@ var ImagePicker = function() {
 *		.height - height to resize image to
 *		.quality - quality of resized image, defaults to 100
 */
-ImagePicker.prototype.getPictures = function(success, fail, options) {
-	if (!options) {
-		options = {};
-	}
-	
-	var params = {
-		maximumImagesCount: options.maximumImagesCount ? options.maximumImagesCount : 15,
-		width: options.width ? options.width : 0,
-		height: options.height ? options.height : 0,
-		quality: options.quality ? options.quality : 100
-	};
+ImagePicker.prototype.getPictures = function (success, fail, options) {
+    if (!options) {
+        options = {};
+    }
 
-	return cordova.exec(success, fail, "ImagePicker", "getPictures", [params]);
+    var params = {
+        maximumImagesCount: options.maximumImagesCount ? options.maximumImagesCount : 15,
+        width: options.width ? options.width : 0,
+        height: options.height ? options.height : 0,
+        quality: options.quality ? options.quality : 100,
+        progressCaption: options.progressCaption,
+        progressMessage: options.progressMessage
+    };
+
+    return cordova.exec(success, fail, "ImagePicker", "getPictures", [params]);
 };
 
 window.imagePicker = new ImagePicker();
